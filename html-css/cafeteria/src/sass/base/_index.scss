@@ -1,0 +1,17 @@
+/* este archivo va actuar como un indice de todos los archivos .scss */
+
+/*
+
+@forward -> simplmente incluye archivos dentro de otros archivos
+
+@use -> Incluyen y utilizan su contenido
+
+@import -> version anterior de @use, tiene las mismas funcionalidades
+
+*/
+
+@forward "normalize";
+@forward "variables";
+@forward "globales";
+@forward "tipografia";
+@forward "mixin";

@@ -1,0 +1,7 @@
+Al principio de cualquier proyecto con sass acuerdate de instalar todas las dependencias con el comando
+
+    npm i
+
+Luego compilamos las hojas de stilo de sass con 
+
+    npm run dev

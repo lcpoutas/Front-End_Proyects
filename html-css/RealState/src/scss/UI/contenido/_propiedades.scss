@@ -1,0 +1,79 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.propiedades {
+  margin-top: 5rem;
+
+  @include m.tablet {
+    margin-top: 10rem;
+  }
+
+  &__heading {
+    @include m.heading;
+  }
+
+  &__grid {
+    @include m.grid(1, 2rem);
+
+    @include m.tablet {
+      @include m.grid(3, 2rem);
+    }
+  }
+}
+
+.propiedad {
+  background-color: v.$blanco;
+  border-radius: 1rem 1rem;
+  box-shadow: 5px 5px 5px lighten(v.$negro, 60%);
+
+  &__imagen {
+    aspect-ratio: 10/6; /* sirve para un crecimiento dinamico de la imagen donde por cada 10px horizontales recibe 6px verticales */
+    background-size: auto 150%;
+    position: relative;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  @for $i from 1 through 6 {
+    /* creamos un bucle for que va desde i=1 hasta i=6 */
+    $imagen: "../img/propiedad_" +
+      $i +
+      ".jpg"; /* creamos una variable llamada imagen donde concatenamos la direccion de la imagen con la variable i, 
+    de esta manera hacemos una asignacion dinamica de las imagenes */
+    &:nth-child(#{$i}) &__imagen {
+      /* asignamos la variable i al selector nth-child */
+      background-image: linear-gradient(
+          to bottom,
+          transparentize(v.$negro, 1%) 0%,
+          transparentize(v.$negro, 0.2%) 100%
+        ),
+        url($imagen); /* asignamos la variable imagen a la url */
+    }
+  }
+
+  &__nombre {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    color: v.$blanco;
+    font-size: 2.4rem;
+  }
+
+  &__contenido {
+    padding: 2rem;
+  }
+
+  &__texto {
+    margin-bottom: 0;
+  }
+
+  &__precio {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  &__enlace {
+    @include m.boton(v.$primario, v.$blanco);
+    display: block;
+    text-transform: uppercase;
+  }
+}

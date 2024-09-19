@@ -1,0 +1,11 @@
+para crear shortcodes para scss seguir estos pasos:
+
+1- pulsar shift + control + p
+2- buscar en el panel de busqueda scss snippets (veras que se te abre un archivo .json)
+3- crear el shortcode que quieras siguiendo los siguientes pasos:
+    1 - definimos el nombre del shortcode como un objeto en los .json ("nombre entre comllas dobles" : {})
+    2 - definimos el nombre clave para llamar al sortcode mediante la llave "prefix" : "nombre"
+    3 - definimos el contenido que queremos que se imprima mediante la llave "body" : [contenido]
+        3.1 - recuerda que para que se coloque el cursos donde quieras escribir tu la variable en lugar de que venga ya predefinina colocamos $num; 
+        si queremos que se coloquen 2 cursores a la vez ponemos el mismo numero en las posiciones que queramos
+        3.2 - \t sirve para crear espacios y \n para crear saltos de linea

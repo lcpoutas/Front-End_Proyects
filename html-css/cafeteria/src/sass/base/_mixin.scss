@@ -1,0 +1,69 @@
+/* 
+
+Para incluir los mixin en otro archivo primero devemos linkear el archivo donde estos mixxin se encuentran con el codigo:
+
+@use 'direccion/mixin.scss'
+
+y luego dentro del selector que quieras usarlo puedes añadirlo con la palabra clave @include:
+
+.header{
+    padding: 5rem 0;
+    position: relative;
+    @include mixin.color
+}
+
+color es un selector que he definido previamente en el archivo mixin
+
+@mixin color {
+  color: black;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+Tambien podemos definir mixin dinamico que asignara al background el color definido en la llamada de la funcion 
+
+@mixin bgColor($color){
+    background-color: $color;
+}
+
+*/
+
+@use "variables" as v;
+
+@mixin telefono {
+  @media (min-width: v.$telefono) {
+    @content; /* se trae las propiedades que definas en el archivo donde este es llamado */
+  }
+}
+
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
+}
+
+/*
+El @content, también conocido como directiva de contenido, es “ simple ”, ya que proporciona una forma de reducir el código repetitivo, lo que permite la reutilización 
+y cambios más fáciles a lo largo de la base de código.
+
+Usar @content para :
+
+@mediaqueries,
+keyframes animation,
+botones,
+selectores anidados,
+notificaciones
+*/
+
+@mixin grid($col, $gap) {
+  /* $col = nº de columnas, $gap = separacion */
+  display: grid;
+  grid-template-columns: repeat($col, 1fr);
+  gap: $gap;
+}

@@ -1,0 +1,23 @@
+/* para usar sass en el html necesitas compilarlo a un archivo .css
+para esto primero necesitas instalar dependencias en gulp
+
+npm i --save-dev sass gulp-sass
+npm install --save-dev gulp-imagemin@7.1.0 -> para trabajar con imagenes, si instalamos versiones superiores no funcionará
+npm i --save-dev gulp-webp
+npm i --save-dev gulp-sourcemaps -> nos mapea todo el codigo diciendo en que archivo se encuantra cada linea de codigo
+npm i --save-dev cssnano -> minifica nuestro css eliminando espacios en blanco y mejora nuestro codigo
+
+/* incluimos un archivo expterno de sass en este */
+
+@use "base";
+@use "header";
+@use "footer";
+@use "inicio";
+@use "internas";
+
+@use "utilidades";
+
+/* no le ponemos el archivo porque gracias a la funcio dev del archivo gulpfile, esta ya busca y carga cualquier archivo .scss presente en esa carpeta, 
+sin esta funcion habria que especificar el archivo */
+
+/* definimos variables */
